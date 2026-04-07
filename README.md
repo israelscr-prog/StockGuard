@@ -1,2 +1,2 @@
 # StockGuard
-sistema de gestión de existencias 
+Sistema de gestión de existencias 
