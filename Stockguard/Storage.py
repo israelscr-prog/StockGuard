@@ -52,3 +52,4 @@ def guardar_inventario(items: list) -> None:
         json.dump(items, f, indent=2) 
 
         
+        
