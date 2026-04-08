@@ -26,7 +26,7 @@ jobs:
         pip install -e .
 
     - name: Run Flake8
-      run: python -m flake8 stockguard/ tests/ --exclude=.venv,venv,__pycache__ --max-line-length=88
-
+      run: python -m flake8 . --exclude=.venv,venv,__pycache__,.git,stockguard.egg-info --max-line-length=88
+      
     - name: Run pytest
       run: pytest -v
