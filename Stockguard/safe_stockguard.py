@@ -1,6 +1,6 @@
 from stockguard import add_item as add_item_original
 from stockguard import update_price as update_price_original
-from validator import validar_cantidad, validar_precio
+from Validator import validar_cantidad, validar_precio
 
 
 def agregar_item(nombre: str, cantidad: int, precio: float):

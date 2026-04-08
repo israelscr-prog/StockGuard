@@ -1,4 +1,3 @@
-# models.py
 from dataclasses import dataclass
 
 @dataclass
@@ -7,8 +6,8 @@ class Item:
 
     Args:
         nombre (str): Nombre del item.
-        cantidad (int): Cantidad disponible. Debe ser mayor que 0.
-        precio (float): Precio unitario. Debe ser mayor que 0.
+        cantidad (int): Cantidad disponible, debe ser mayor que 0.
+        precio (float): Precio unitario, debe ser mayor que 0.
 
     Raises:
         ValueError: Si cantidad <= 0 o precio <= 0.
