@@ -1,4 +1,4 @@
-# stockguard.py — código heredado (NO modificar este archivo directamente)
+###### stockguard.py — código heredado (NO modificar este archivo directamente) ######
  
 import json, os
  
@@ -28,3 +28,4 @@ def update_price(name, new_price):
  
 def get_total_value():
     return sum(i['qty'] * i['price'] for i in load_inventory())
+    
