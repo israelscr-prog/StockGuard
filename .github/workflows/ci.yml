@@ -34,6 +34,11 @@ jobs:
         run: |
           flake8 stockguard/ tests/ --ignore=W292,W293,E302,E902,E501
 
+      - name: Ejecutar tests
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest -v
+
       # 5️⃣ Ejecutar tests con pytest
       - name: Run tests with pytest
         run: |
