@@ -52,3 +52,4 @@ def test_precio_muy_pequeno():
 def test_precio_muy_grande():
     """Edge case: precio extremadamente grande."""
     assert validar_precio(1_000_000.0) is True
+    

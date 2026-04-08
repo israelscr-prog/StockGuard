@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Item:
     """Clase que representa un item en inventario.
@@ -18,6 +19,7 @@ class Item:
 
     def __post_init__(self):
         if self.cantidad <= 0:
-            raise ValueError("cantidad debe ser mayor que 0")
+            raise ValueError("cantidad debe ser mayor que 0")       
         if self.precio <= 0:
             raise ValueError("precio debe ser mayor que 0")
+        

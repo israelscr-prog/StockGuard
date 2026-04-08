@@ -49,4 +49,6 @@ def guardar_inventario(items: list) -> None:
         raise TypeError("items debe ser una lista.")
 
     with open(ARCHIVO_INVENTARIO, "w", encoding="utf-8") as f:
-        json.dump(items, f, indent=2)
+        json.dump(items, f, indent=2) 
+
+        
