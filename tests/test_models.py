@@ -1,5 +1,5 @@
 import pytest
-from Stockguard.models import Item
+from stockguard.models import Item
 
 def test_creacion_valida():
     """Prueba: creación válida de un Item."""

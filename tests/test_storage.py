@@ -1,6 +1,6 @@
 import pytest
 import json
-from Stockguard.Storage import cargar_inventario, guardar_inventario
+from stockguard.Storage import cargar_inventario, guardar_inventario
 
 # -----------------------------------
 # Tests para cargar_inventario()
