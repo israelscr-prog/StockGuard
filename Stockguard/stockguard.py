@@ -1,4 +1,4 @@
-###### stockguard.py — código heredado (NO modificar este archivo directamente) ######
+### stockguard.py — código heredado (NO modificar este archivo directamente)###
  
 import json, os
  
