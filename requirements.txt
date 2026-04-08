@@ -1,3 +1,8 @@
 pytest>=8
 pytest-mock>=3
 flake8>=7
+pytest
+pytest-mock
+flake8
+pylint
+pyyaml

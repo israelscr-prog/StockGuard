@@ -1,5 +1,5 @@
 import pytest
-from stockguard.validator import validar_cantidad, validar_precio
+from stockguard.Validator import validar_cantidad, validar_precio
 
 # -----------------------------------
 # Tests para validar_cantidad()
