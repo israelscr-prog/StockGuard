@@ -32,7 +32,7 @@ jobs:
       # 4️⃣ Lint con flake8 sobre stockguard/ y tests/
       - name: Lint code with flake8
         run: |
-          flake8 stockguard/tests/--ignore=W292,W293,E302
+          flake8 stockguard/ tests/ --ignore=W292,W293,E302
 
       # 5️⃣ Ejecutar tests con pytest
       - name: Run tests with pytest
