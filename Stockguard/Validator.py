@@ -20,10 +20,9 @@ def validar_cantidad(cantidad: int) -> bool:
         >>> validar_cantidad(-3)
         False
     """
-    if not isinstance(cantidad, int):
-        raise TypeError("La cantidad debe ser un entero.")
-
-    return cantidad > 0
+    if cantidad <= 0:
+        raise ValueError("cantidad debe ser mayor que 0")
+    return True
 
 
 def validar_precio(precio: float) -> bool:
@@ -44,7 +43,6 @@ def validar_precio(precio: float) -> bool:
         >>> validar_precio(-1)
         False
     """
-    if not isinstance(precio, (int, float)):
-        raise TypeError("El precio debe ser numérico.")
-
-    return precio >= 0
+    if precio <= 0:
+        raise ValueError("precio debe ser mayor que 0")
+    return True
