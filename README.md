@@ -102,9 +102,8 @@ Instalación de dependencias
 Análisis con Flake8
 Ejecución de tests con pytest
 
-📸 Ejemplo:
-
-
+📸 Ejemplo: imagenes\image.png
+g
 
 🔒 Seguridad y mejoras aplicadas
 
