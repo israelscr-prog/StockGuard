@@ -1,31 +1,61 @@
-# StockGuard
+# 📦 StockGuard
 
 ![CI](https://github.com/israelscr-prog/StockGuard/actions/workflows/ci.yml/badge.svg)
 
-## StockGuard es un sistema de gestión de existencias 
+## 🧾 Descripción
 
+**StockGuard** es un sistema de gestión de inventario desarrollado en Python 3.12+, diseñado para garantizar la integridad de los datos mediante validaciones estrictas, testing automatizado y un pipeline de integración continua.
 
-Sistema de gestión de existencias en Python 3.12+. Permite registrar productos con nombre, cantidad y precio, validando que los datos sean siempre coherentes: sin stock negativo, sin precios absurdos y con persistencia en JSON.
-Descripción
+Permite registrar productos con:
 
-StockGuard es un sistema de inventario de línea de comandos diseñado para ser auditado, documentado y protegido frente a entradas inválidas. El proyecto nació como código heredado con errores de lógica y ausencia de validaciones; ha sido refactorizado, testeado y equipado con un pipeline CI/CD.
+- Nombre  
+- Cantidad  
+- Precio  
 
-Módulos principales:
-Módulo	Responsabilidad
-models.py , define la clase Item con validaciones de cantidad y precio
-Storage.py , carga y guarda el inventario en inventory.json
-Validator.py	Funciones de validación reutilizables (validar_cantidad, validar_precio)
-stockguard.py	Punto de entrada heredado — lógica principal del sistema
-Instalación
+Asegurando que:
 
-Requisitos: Python 3.12 o superior.
+- ❌ No existan cantidades negativas  
+- ❌ No existan precios inválidos  
+- ✅ Los datos sean consistentes y persistentes en JSON  
 
-bash
-# 1. Clona el repositorio
+---
+
+## 🎯 Objetivo del proyecto
+
+Este proyecto parte de un código heredado con vulnerabilidades y ausencia de buenas prácticas.  
+El objetivo ha sido transformarlo aplicando:
+
+- 🔍 Auditoría de seguridad  
+- 🧪 Testing automatizado con mocks  
+- 📚 Documentación técnica  
+- ⚙️ Pipeline CI/CD  
+
+👉 Demostrando cómo la IA puede apoyar el ciclo completo de calidad del software.
+
+---
+
+## 🧩 Módulos principales
+
+| Módulo | Descripción |
+|--------|------------|
+| `models.py` | Define la clase `Item` con validaciones |
+| `storage.py` | Carga y guarda inventario en JSON |
+| `validator.py` | Funciones de validación reutilizables |
+| `stockguard.py` | Lógica principal heredada |
+| `safe_stockguard.py` | Wrapper seguro del sistema |
+
+---
+
+## ⚙️ Instalación
+
+**Requisitos:** Python 3.12+
+
+```bash
+# 1. Clonar repositorio
 git clone https://github.com/israelscr-prog/StockGuard.git
 cd StockGuard
 
-# 2. Crea y activa el entorno virtual
+# 2. Crear entorno virtual
 python -m venv .venv
 
 # Windows
@@ -34,134 +64,119 @@ python -m venv .venv
 # Linux / macOS
 source .venv/bin/activate
 
-# 3. Instala las dependencias
+# 3. Instalar dependencias
 pip install -r requirements.txt
 
-# 4. Instala el paquete en modo editable
+# 4. Instalar paquete
 pip install -e .
+🧪 Testing
 
-Cómo ejecutar los tests
+Ejecutar todos los tests:
 
-bash
-# Ejecutar todos los tests con detalle
 python -m pytest -v
 
-# Ejecutar solo un módulo de tests
-python -m pytest tests/test_models.py -v
+Con cobertura:
 
-# Ejecutar con cobertura (si tienes pytest-cov instalado)
 python -m pytest --cov=stockguard -v
-
-Suite de tests incluida:
-Archivo	Qué prueba
-tests/test_models.py	Creación válida de Item, rechazo de cantidad/precio negativos o cero
-tests/test_storage.py	Carga de inventario inexistente, JSON corrupto y JSON válido; guardado con indent
-tests/test_validator.py	Funciones validar_cantidad y validar_precio con casos límite
-Cómo ejecutar el linter
-
-bash
+📁 Suite de tests
+Archivo	Descripción
+test_models.py	Validación de creación de Item
+test_storage.py	Mock de archivos y JSON
+test_validator.py	Casos base y edge cases
+🔍 Linting
 python -m flake8 . --exclude=.venv,venv,__pycache__,.git,stockguard.egg-info --max-line-length=88
+🔁 CI/CD
 
-Pipeline CI/CD
+El proyecto incluye un pipeline en GitHub Actions:
 
-El repositorio incluye un workflow de GitHub Actions en .github/workflows/ci.yml que se ejecuta en cada push y pull_request a main.
+📍 .github/workflows/ci.yml
 
-Pasos del pipeline:
+Se ejecuta en cada:
 
-    Checkout del repositorio
+push
+pull_request a main
+🔧 Pasos del pipeline:
+Checkout del repositorio
+Setup Python 3.12
+Instalación de dependencias
+Análisis con Flake8
+Ejecución de tests con pytest
 
-    Setup de Python 3.12
+📸 Ejemplo:
 
-    Instalación de dependencias (pip install -r requirements.txt && pip install -e .)
 
-    Análisis estático con Flake8
 
-    Ejecución de tests con pytest
+🔒 Seguridad y mejoras aplicadas
 
-![alt text](image-1.png)
-Screenshot de Git Action que funciona correctamente
+Se han corregido vulnerabilidades críticas del código heredado:
 
-Vulnerabilidades corregidas
+Validación de datos (cantidad y precio)
+Manejo de errores en JSON corrupto
+Control de archivo inexistente
+Mejora en robustez del sistema
 
-El código heredado carecía de validaciones de entrada. Se han aplicado las siguientes protecciones:
+📄 Ver detalles en: AUDIT.md
 
-    Stock negativo: Item lanza ValueError si cantidad <= 0
+#🤖 Uso de IA
 
-    Precio absurdo: Item lanza ValueError si precio <= 0
+Este proyecto ha sido desarrollado con apoyo de IA #(Perplexity AI, ChatGPT y Sonnet4.6) en:
 
-    JSON corrupto: cargar_inventario() captura json.JSONDecodeError y retorna lista vacía en lugar de propagar la excepción
+Diagnóstico de errores
+Generación de tests
+Configuración del pipeline CI/CD
+Documentación técnica
+👨‍💻 Rol del desarrollador
+Validación de soluciones propuestas
+Ajuste al contexto real del proyecto
+Resolución de conflictos (case-sensitive, imports, etc.)
+Pruebas manuales y verificación final
 
-    Archivo inexistente: cargar_inventario() retorna [] si el fichero no existe
+👉 La IA actúa como asistente, no como sustituto.
 
-Uso de IA
+#🧠 Reflexión
 
-Este proyecto ha sido desarrollado con asistencia de Perplexity AI como herramienta de auditoría, depuración y documentación.
-Qué generó la IA
+La combinación de IA + criterio humano permite:
 
-    Diagnóstico del error ModuleNotFoundError: No module named 'StockGuard' y pasos de resolución
+Detectar errores más rápido
+Aplicar buenas prácticas
+Mejorar la calidad del software
 
-    Alguna aportaion en generacion de codigos en archivos como:
-    -models.py
-    --test_models.py
-    -Storage.py
-    --test_storage.py
-    -Validator.py
-    --test_validator
+Pero siempre requiere supervisión y decisiones técnicas del desarrollador.
 
-    Identificación del conflicto de case-sensitivity entre Windows y Linux en Git (Stockguard vs stockguard)
-
-    Generación del archivo pyproject.toml mínimo para hacer el paquete instalable con pip install -e .
-
-    Versión corregida del ci.yml con pip install -e ., versiones actualizadas de actions y target correcto para Flake8
-
-    Comandos git config core.ignorecase false + git mv para forzar el renombrado de la carpeta del paquete
-
-    Este README
-
-Qué modificó el desarrollador entre otras:
-
-    Renombrado manual de las carpetas del paquete para mantener consistencia entre el sistema de ficheros y los imports
-
-    Verificación y ajuste de los imports en los archivos de tests (from stockguard.models import Item)
-
-    Revisión de cada solución propuesta antes de aplicarla, descartando las que no encajaban con la estructura real del proyecto
-
-    Eliminación de tests/__init__.py tras verificar que causaba conflictos con el modo de importación de pytest
-
-    Pruebas manuales locales en cada paso antes de hacer push al repositorio remoto
-
-Reflexión
-
-La IA actuó como un depurador experto que conoce las causas más comunes de cada tipo de error. Sin embargo, fue imprescindible la intervención humana para: (1) proporcionar el contexto exacto del entorno (estructura de carpetas, salidas de terminal), (2) decidir qué solución aplicar cuando había varias opciones, y (3) detectar que algunos comandos generados mezclaban el prompt del terminal con el comando real. El flujo más efectivo fue iterar: IA propone → desarrollador ejecuta y reporta → IA ajusta.
-Estructura del proyecto
-
-text
-
+📂 Estructura del proyecto
 StockGuard/
-├── .github/
-│   └── workflows/
-│       └── ci.yml          # Pipeline CI/CD
-├── stockguard/             # Paquete principal
+├── .github/workflows/ci.yml
+├── stockguard/
 │   ├── __init__.py
-│   ├── models.py           # Clase Item
-│   ├── Storage.py          # Persistencia JSON
-│   ├── Validator.py        # Validaciones de entrada
-│   └── stockguard.py       # Lógica heredada
-│   └── safe_stockguard.py  # Codigo Wrapper de la heredada
+│   ├── models.py
+│   ├── storage.py
+│   ├── validator.py
+│   ├── stockguard.py
+│   └── safe_stockguard.py
 ├── tests/
 │   ├── test_models.py
 │   ├── test_storage.py
 │   └── test_validator.py
-├── conftest.py             # Configuración pytest
-├── pyproject.toml          # Build system
-├── setup.cfg               # Configuración del proyecto y herramientas
+├── pyproject.toml
+├── setup.cfg
 ├── requirements.txt
-├── Audit.md
+├── AUDIT.md
 └── README.md
+📄 Licencia
 
-Licencia
-
-Distribuido bajo licencia MIT. Consulta el archivo LICENSE para más detalles.
-
+Este proyecto está bajo licencia MIT.
 
 
+---
+
+## 🔥 Mejoras clave que te hice
+
+- Lenguaje más profesional  
+- Estructura clara (empresa / técnico)  
+- Tablas limpias  
+- Separación visual  
+- Eliminé repeticiones  
+- Mejor narrativa del proyecto  
+- Más “nivel GitHub real”  
+
+---
